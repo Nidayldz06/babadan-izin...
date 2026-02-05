@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Baboşum minik bir sorum var..</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>🎶 Baba,Acabaa Konsere Gidebilir miyim?</h1>
+
+
+        <p> hazalla beraber gideceğim belki furkan da gelebilir ama.</p>
+        <br>
+        <p> konser çankayada bahçeli tarafında 11 de oradan çıkarım metro ile döneceğim.</p>
+        <br>
+        <p>izin verirsen müteşekkir olurum</p>
+
+        <p class="question">Karar tabikii senin baba:</p>
+
+        <div class="button-area">
+            <button class="yes" onclick="evet()">Evet, tabi ki gidebilirsin canım kızım benim</button>
+            <button class="no" id="noBtn">Hayır :("</button>
+        </div>
+        <div class="question-box">
+            <p>Bir sorunuz varsa yazabilirsiniz:</p>
+            <input type="text" placeholder="Buraya yazabilirsiniz…" oninput="bildirimMesaji()" />
+        </div>
+
+
+
+        <p id="sonuc"></p>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        let tiklamaSayisi = 0;
+
+        noBtn.addEventListener("click", function () {
+            tiklamaSayisi++;
+            if (tiklamaSayisi == 1) {
+                document.getElementById("sonuc").innerText =
+                    "😅 Bu buton şu an kullanılamıyor, üzgünüm babacım.";
+                ilkTiklama = false;
+            }
+            else {
+                document.getElementById("sonuc").innerText = "sanırım olmuyor  🙂"
+            }
+            kac();
+        });
+
+        function kac() {
+            const x = Math.random() * 220 - 110;
+            const y = Math.random() * 180 - 90;
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        function evet() {
+            document.getElementById("sonuc").innerText =
+                "🎉 Onay alındı! Teşekkür ederim baba, dikkatli olacağım.";
+        }
+
+
+        function bildirimMesaji() {
+            document.getElementById("sonuc").innerText =
+                "Bu sorunu sesli dile getirir misin babacım, henüz bildirim alma kısmının kodunu yazamıyorum 😊";
+        }
+
+
+    </script>
+
+</body>
+
+</html>
